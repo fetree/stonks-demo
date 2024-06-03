@@ -20,4 +20,55 @@ model User {
   active    Boolean?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  twoFa TwoFa?
+
+  following Follow[] @relation("Following")
+  followers Follow[] @relation("Followers")
+
+  channels Channel[] @relation("CreatedChannels")
+  messages Message[] @relation("UserMessages")
+}
+
+model TwoFa {
+  id        Int      @id @default(autoincrement())
+  userId    String   @unique
+  user      User     @relation(fields: [userId], references: [id])
+  code      String
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Follow {
+  id          Int      @id @default(autoincrement())
+  followerId  String
+  followingId String
+  createdAt   DateTime @default(now())
+
+  follower  User @relation("Followers", fields: [followerId], references: [id])
+  following User @relation("Following", fields: [followingId], references: [id])
+
+  @@unique([followerId, followingId]) // Unique combo
+}
+
+model Channel {
+  id          String    @id @default(uuid())
+  title       String
+  description String
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  creatorId   String
+  creator     User      @relation("CreatedChannels", fields: [creatorId], references: [id])
+  messages    Message[]
+}
+
+model Message {
+  id        String   @id @default(uuid())
+  content   String
+  createdAt DateTime @default(now())
+  channelId String
+  userId    String
+  user      User     @relation("UserMessages", fields: [userId], references: [id])
+  channel   Channel  @relation(fields: [channelId], references: [id])
 }
