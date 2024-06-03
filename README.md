@@ -12,8 +12,6 @@ tags:
 
 This is an [ExpressJS](https://expressjs.com/) REST API that uses [Prisma](https://www.prisma.io/) to connect to a Postgres database and CRUD todos.
 
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/LqCw_O)
-
 ## ✨ Features
 
 - Prisma
@@ -23,18 +21,13 @@ This is an [ExpressJS](https://expressjs.com/) REST API that uses [Prisma](https
 
 ## 💁‍♀️ How to use
 
-- Install dependencies `yarn`
-- [Provision a Postgres container on Railway](https://dev.new)
-- Connect to your Railway project with `railway link`
-- Migrate the database `railway run yarn migrate:dev`
-- Run the Server app `railway run yarn dev`
+- Install dependencies `npm install`
+- Start db with `sh start-db.sh`
+- Run `npm run push`
+- Run `npm run generate`
+- Start the server with `npm run dev`
+- Open the postman collection and sign up!
 
-## 📝 Notes
+## 📝 Endpoints
 
-This is a simple REST API for todo items. The available routes are
-
-- `GET /todos` gets all todos
-- `POST /todos` creates a new using `text` in the JSON body
-- `GET /todos/:id` gets a todo by id
-- `PUT /todos/:id` updates a todo by id
-- `DELETE /todos/:id` deletes a todo by id
+- There is a postman collection that you can download and import here: `stonks-demo.postman_collection.json`

@@ -1,0 +1,313 @@
+{
+	"info": {
+		"_postman_id": "d821db19-d8de-4ced-a949-11ea8ebadda9",
+		"name": "stonks-demo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18094484"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "signUpEmailPassword",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"test@gmail.com\",\n  \"password\": \"password123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/auth/signUpEmail",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"signUpEmail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SignInEmailPassword",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"test@example.com\",\n  \"password\": \"password123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/auth/signInEmail",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"signInEmail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GoogleSignup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"token\": \"eyJhbGciOiJSUzI1NiIsImtpZCI6IjY3MTk2NzgzNTFhNWZhZWRjMmU3MDI3NGJiZWE2MmRhMmE4YzRhMTIiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiIzODk5MTU3ODEyMTItbjljOTEzbmU0Ymd2MzZwa2pqcHZmOGZlY2puNmpvNm0uYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiIzODk5MTU3ODEyMTItbjljOTEzbmU0Ymd2MzZwa2pqcHZmOGZlY2puNmpvNm0uYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMTM4OTExMTc1NjI2MjkyOTQxOTciLCJlbWFpbCI6ImRhdmlkamVpc2VuYmF1bUBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiYXRfaGFzaCI6IkdvUVlHUXN5b1Z5T0txcVJSTjRQcUEiLCJpYXQiOjE3MTczMjk1ODgsImV4cCI6MTcxNzMzMzE4OH0.NU9anMT56kxKMuVYMJ78dO6VOFKcXyN4JvBQkK8lJ_TbyH39_nW0zZJ-kROCeq8YZeGDvduvpQeoyhbB7nbuz9varPNnOl9IrUaXzk6kFxO9QjJlfGrmyOfLz1khrZGg8q-Tc6vyXjHfiP8AThPZ8S0gzhiMCD8GKxQHxueiwIrVpGIbPhmJXV84X5MiBTpbg6PYEPNBfFOBfah8FrkTQHWA46UDAw-k5zYzky_Z_T9yc1cgrzgijNmWFyW3mVb0JlVTkhjJqxBGUcaXtQt1Ri5Drp188KUqAYaXQMaxK5qnYZ2hsqNDqU4tf41jVY12c7eI4VkllNIj4n705SZihQ\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/auth/googleSignup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"googleSignup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Send 2FA",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRhdmlkamVpc2VuYmF1bUBnbWFpbC5jb20iLCJpZCI6IjM3MjlmOWM0LTg0YjYtNDFhMy05ODU0LTc4ZDc3YzhhNTQyMSIsImlhdCI6MTcxNzM5OTYyNywiZXhwIjoxNzE3NDAzMjI3fQ.xf-XXBvjXNJyQb6IWq16h5yMllKoZOzpmxi5v3epHzs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/auth/send2fa",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"send2fa"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Verify 2FA",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRhdmlkamVpc2VuYmF1bUBnbWFpbC5jb20iLCJpZCI6IjM3MjlmOWM0LTg0YjYtNDFhMy05ODU0LTc4ZDc3YzhhNTQyMSIsImlhdCI6MTcxNzM5OTYyNywiZXhwIjoxNzE3NDAzMjI3fQ.xf-XXBvjXNJyQb6IWq16h5yMllKoZOzpmxi5v3epHzs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"code\": \"EORZW\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/auth/verify2fa",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"verify2fa"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "Update User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZXhhbXBsZS5jb20iLCJpZCI6ImZjNDMxNDZiLWQ2OWItNGZlMS1iYWVjLWQwZjYyNGQwNzU3OCIsImlhdCI6MTcxNzM5NzY0MywiZXhwIjoxNzE3NDAxMjQzfQ.ozi_pvkhsV5FETqUa3DUTXzrfqZkj3g1eJRcFes9oWY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZXhhbXBsZS5jb20iLCJpZCI6ImZjNDMxNDZiLWQ2OWItNGZlMS1iYWVjLWQwZjYyNGQwNzU3OCIsImlhdCI6MTcxNzM5NzY0MywiZXhwIjoxNzE3NDAxMjQzfQ.ozi_pvkhsV5FETqUa3DUTXzrfqZkj3g1eJRcFes9oWY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"avatar\": \"someUrl\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/user/updateUser",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"updateUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Follow user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRhdmlkamVpc2VuYmF1bUBnbWFpbC5jb20iLCJpZCI6IjM3MjlmOWM0LTg0YjYtNDFhMy05ODU0LTc4ZDc3YzhhNTQyMSIsImlhdCI6MTcxNzM5OTYyNywiZXhwIjoxNzE3NDAzMjI3fQ.xf-XXBvjXNJyQb6IWq16h5yMllKoZOzpmxi5v3epHzs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"followUserId\": \"510003f5-aeab-4e11-96c6-7795a18021da\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/user/follow",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"follow"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Unfollow User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRhdmlkamVpc2VuYmF1bUBnbWFpbC5jb20iLCJpZCI6IjM3MjlmOWM0LTg0YjYtNDFhMy05ODU0LTc4ZDc3YzhhNTQyMSIsImlhdCI6MTcxNzM5OTYyNywiZXhwIjoxNzE3NDAzMjI3fQ.xf-XXBvjXNJyQb6IWq16h5yMllKoZOzpmxi5v3epHzs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"unfollowUserId\": \"510003f5-aeab-4e11-96c6-7795a18021da\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/user/unfollow",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"unfollow"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "channel",
+			"item": []
+		}
+	]
+}
