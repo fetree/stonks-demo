@@ -6,7 +6,6 @@
   "license": "MIT",
   "scripts": {
     "dev": "nodemon src/index.ts",
-    "build": "yarn migrate:deploy && tsc",
     "push": "prisma db push",
     "studio": "prisma studio",
     "start": "node dist/index.js",
