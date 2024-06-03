@@ -26,8 +26,20 @@ model User {
   following Follow[] @relation("Following")
   followers Follow[] @relation("Followers")
 
-  channels Channel[] @relation("CreatedChannels")
-  messages Message[] @relation("UserMessages")
+  channels  Channel[]  @relation("CreatedChannels")
+  messages  Message[]  @relation("UserMessages")
+  userRoles UserRole[]
+}
+
+model UserRole {
+  id        Int     @id @default(autoincrement())
+  userId    String
+  channelId String
+  role      String
+  user      User    @relation(fields: [userId], references: [id])
+  channel   Channel @relation(fields: [channelId], references: [id])
+
+  @@unique([userId, channelId, role])
 }
 
 model TwoFa {
@@ -53,14 +65,15 @@ model Follow {
 }
 
 model Channel {
-  id          String    @id @default(uuid())
+  id          String     @id @default(uuid())
   title       String
   description String
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
   creatorId   String
-  creator     User      @relation("CreatedChannels", fields: [creatorId], references: [id])
+  creator     User       @relation("CreatedChannels", fields: [creatorId], references: [id])
   messages    Message[]
+  UserRole    UserRole[]
 }
 
 model Message {

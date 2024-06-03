@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Socket.IO Chat</title>
+  <script src="/socket.io/socket.io.js"></script>
+  <style>
+    #messages {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    #messages li {
+      padding: 8px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    #form {
+      display: flex;
+      margin-top: 10px;
+    }
+
+    #input {
+      flex: 1;
+      padding: 8px;
+      font-size: 16px;
+    }
+
+    #button {
+      padding: 8px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Socket.IO Chat</h1>
+  <ul id="messages"></ul>
+  <form id="form" action="">
+    <input id="input" autocomplete="off" /><button id="button">Send</button>
+  </form>
+
+  <script>
+    const userId = '3729f9c4-84b6-41a3-9854-78d77c8a5421';
+    const channelId = '146e4da5-5394-40a4-bf97-e7ec4ebab2e6';
+
+    const socket = io('http://localhost:3000', {
+      query: { userId }
+    });
+
+    const messagesList = document.getElementById('messages');
+    const form = document.getElementById('form');
+    const input = document.getElementById('input');
+
+    socket.on('connect', () => {
+      console.log('Connected to server');
+      socket.emit('joinChannel', { channelId });
+    });
+
+    socket.on('channelMessages', (messages) => {
+      console.log('Channel messages:', messages);
+      messages.forEach(message => {
+        addMessage(message.content);
+      });
+    });
+
+    socket.on('newMessage', (message) => {
+      console.log('New message:', message);
+      addMessage(message.content);
+    });
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (input.value) {
+        socket.emit('postMessage', { channelId, content: input.value, userId });
+        input.value = '';
+      }
+    });
+
+    function addMessage(content) {
+      const item = document.createElement('li');
+      item.textContent = content;
+      messagesList.appendChild(item);
+      window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    socket.on('disconnect', () => {
+      console.log('Disconnected from server');
+    });
+  </script>
+</body>
+</html>
