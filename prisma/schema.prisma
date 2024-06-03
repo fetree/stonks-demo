@@ -10,9 +10,14 @@ generator client {
   provider = "prisma-client-js"
 }
 
-model Todo {
+model User {
   id        String   @id @default(uuid())
+  fullName  String?
+  username  String?  @unique
+  email     String   @unique
+  password  String?
+  avatar    String?
+  active    Boolean?
   createdAt DateTime @default(now())
-  text      String
-  completed Boolean
+  updatedAt DateTime @updatedAt
 }
